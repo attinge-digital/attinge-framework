@@ -15,6 +15,9 @@
 			"Attinge\\Framework\\": "framework/"
 		}
 	},
+	"require": {
+		"nikic/fast-route": "dev-master"
+	},
 	"require-dev": {
 		"symfony/var-dumper": "6.3.x-dev"
 	}

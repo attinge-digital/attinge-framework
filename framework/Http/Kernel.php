@@ -2,27 +2,21 @@
 
 namespace Attinge\Framework\Http;
 
-use FastRoute\RouteCollector;
-use function FastRoute\simpleDispatcher;
+use Attinge\Framework\Routing\Router;
 
 class Kernel {
+	public function __construct(
+		private readonly Router $router,
+	) {}
 	public function handle(Request $request) : Response {
-		$dispatcher = simpleDispatcher(function(RouteCollector $routeCollector) {
-			$routes = include BASE_PATH . '/routes/web.php';
-			foreach ($routes as $route) {
-				$routeCollector->addRoute(...$route);
-			}
-		});
-
-		$routeInfo = $dispatcher->dispatch(
-			$request->getMethod(),
-			$request->getPathInfo(),
-		);
-
-		[$status, [$controller, $method], $vars] = $routeInfo;
-
-		$response = call_user_func_array([new $controller(), $method], $vars);
+		try {
+			[$routeHandler, $vars] = $this->router->dispatch($request);
+			$response = call_user_func_array($routeHandler, $vars);
+		} catch (\Exception $e) {
+			$response = new Response($e->getMessage(), 400);
+		}
 
 		return $response;
+
 	}
 }

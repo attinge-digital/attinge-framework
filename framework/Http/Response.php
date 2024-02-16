@@ -2,11 +2,11 @@
 
 namespace Attinge\Framework\Http;
 
-class Response {
+readonly class Response {
 	public function __construct(
-		private ?string $content = '',
-		private int     $status = 200,
-		private array   $headers = [],
+		public ?string $content = '',
+		public int     $status = 200,
+		public array   $headers = [],
 	) {}
 
 	public function send() : void {

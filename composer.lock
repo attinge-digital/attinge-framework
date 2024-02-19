@@ -4,8 +4,42 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c899af8dc9bded3db238ef0be0cb311e",
+    "content-hash": "7116c4789c84a315d3993b1b03bed756",
     "packages": [
+        {
+            "name": "attinge/php-framework",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "framework",
+                "reference": "f44d6506fa659768d9856516b15bfdd9062b5503"
+            },
+            "require": {
+                "nikic/fast-route": "dev-master"
+            },
+            "require-dev": {
+                "symfony/var-dumper": "6.3.x-dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Attinge\\Framework\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caio Augusto",
+                    "email": "caio@attingedigital.com.br"
+                }
+            ],
+            "description": "A PHP framework project",
+            "transport-options": {
+                "relative": true
+            }
+        },
         {
             "name": "nikic/fast-route",
             "version": "dev-master",
@@ -361,12 +395,12 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "nikic/fast-route": 20,
+        "attinge/php-framework": 20,
         "symfony/var-dumper": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }

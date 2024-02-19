@@ -1,0 +1,31 @@
+{
+	"name": "attinge/php-framework",
+	"description": "A PHP framework project",
+	"minimum-stability": "dev",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Caio Augusto",
+			"email": "caio@attingedigital.com.br"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Attinge\\Framework\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Attinge\\Framework\\Tests\\": "tests/"
+		}
+	},
+	"require-dev": {
+		"symfony/var-dumper": "6.3.x-dev",
+		"phpunit/phpunit": "11.1.x-dev"
+	},
+	"require": {
+		"php": ">=8.2",
+		"nikic/fast-route": "dev-master",
+		"psr/container": "2.0.x-dev"
+	}
+}

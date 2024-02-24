@@ -2,12 +2,22 @@
 
 namespace App\Controller;
 
+use App\Model;
 use Attinge\Framework\Http\Response;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
-class HomeController {
-	public function index() : Response {
-		$content = '<h1>Hello, World!</h1>';
-
-		return new Response($content);
-	}
+class HomeController extends Controller
+{
+    public function __construct(
+        private readonly Model $model,
+    ) {}
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function index() : Response
+    {
+       return $this->render('home.html.twig', ['name' => $this->model->name]);
+    }
 }

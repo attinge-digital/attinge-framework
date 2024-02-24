@@ -16,7 +16,7 @@
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Attinge\\Framework\\Tests\\": "tests/"
+			"GaryClarke\\Framework\\Tests\\": "tests"
 		}
 	},
 	"require-dev": {
@@ -24,8 +24,11 @@
 		"phpunit/phpunit": "11.1.x-dev"
 	},
 	"require": {
-		"php": ">=8.2",
 		"nikic/fast-route": "dev-master",
-		"psr/container": "2.0.x-dev"
+		"psr/container": "2.0.x-dev",
+		"league/container": "^4.0.0",
+		"symfony/dotenv": "^6.0",
+		"twig/twig": "^3.0",
+		"doctrine/dbal": "^3.6"
 	}
 }

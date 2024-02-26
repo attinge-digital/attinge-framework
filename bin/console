@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+
+// set a base path
+use Psr\Container\ContainerInterface;
+
+define('BASE_PATH', dirname(__DIR__));
+
+// require autoloading
+require_once BASE_PATH . '/vendor/autoload.php';
+
+// require the container
+/** @var ContainerInterface $container */
+$container = require BASE_PATH . '/config/services.php';
+
+// Get the Console Kernel from the container
+$kernel = $container->get(\Attinge\Framework\Console\Kernel::class);
+
+// Call a handle method on the Kernel, return the console application status code
+$status = $kernel->handle();
+
+// exit with that status
+exit($status);
